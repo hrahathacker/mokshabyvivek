@@ -1,0 +1,8 @@
+{
+  "name": "MOKSHA: The Last Ritual",
+  "description": "A 3D first-person Indian survival horror web game set in an abandoned 1984 North Indian haveli. Collect four sacred ritual items, evade the vengeful maroon-saree spirit, and survive the final havan to grant her peace.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

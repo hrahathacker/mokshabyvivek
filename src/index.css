@@ -1,0 +1,107 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --font-display: 'Cinzel', Georgia, serif;
+    --font-sans: 'DM Sans', system-ui, -apple-system, sans-serif;
+    --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+    --sat: env(safe-area-inset-top, 0px);
+    --sar: env(safe-area-inset-right, 0px);
+    --sab: env(safe-area-inset-bottom, 0px);
+    --sal: env(safe-area-inset-left, 0px);
+  }
+
+  html,
+  body,
+  #root {
+    width: 100%;
+    height: 100%;
+    height: 100dvh;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #05090a;
+    color: #e8e2d5;
+    font-family: var(--font-sans);
+    -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    user-select: none;
+    overscroll-behavior: none;
+    touch-action: manipulation;
+  }
+}
+
+.font-display {
+  font-family: var(--font-display);
+}
+
+.font-mono-tabular {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+}
+
+/* Android notch / punch-hole / gesture-bar safe padding */
+.safe-pad {
+  padding-top: max(0.5rem, var(--sat));
+  padding-right: max(0.75rem, var(--sar));
+  padding-bottom: max(0.5rem, var(--sab));
+  padding-left: max(0.75rem, var(--sal));
+}
+
+.safe-hud-inset {
+  top: max(0.5rem, var(--sat));
+  right: max(0.75rem, var(--sar));
+  bottom: max(0.5rem, var(--sab));
+  left: max(0.75rem, var(--sal));
+}
+
+@keyframes subtleMistDrift {
+  0% {
+    transform: translate3d(-2%, 0, 0) scale(1.04);
+    opacity: 0.28;
+  }
+  50% {
+    transform: translate3d(2%, -1%, 0) scale(1.08);
+    opacity: 0.42;
+  }
+  100% {
+    transform: translate3d(-2%, 0, 0) scale(1.04);
+    opacity: 0.28;
+  }
+}
+
+@keyframes jumpscareShake {
+  0% { transform: translate3d(-8px, 6px, 0) scale(1.05); }
+  20% { transform: translate3d(10px, -8px, 0) scale(1.1); }
+  40% { transform: translate3d(-12px, -6px, 0) scale(1.08); }
+  60% { transform: translate3d(8px, 10px, 0) scale(1.12); }
+  80% { transform: translate3d(-6px, -8px, 0) scale(1.06); }
+  100% { transform: translate3d(0, 0, 0) scale(1); }
+}
+
+@keyframes phoneRotateHint {
+  0%, 18% { transform: rotate(0deg); }
+  55%, 82% { transform: rotate(-90deg); }
+  100% { transform: rotate(0deg); }
+}
+
+.animate-mist {
+  animation: subtleMistDrift 14s ease-in-out infinite;
+}
+
+.animate-jumpscare {
+  animation: jumpscareShake 0.14s linear infinite;
+}
+
+.animate-rotate-phone {
+  animation: phoneRotateHint 2.6s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-mist,
+  .animate-jumpscare,
+  .animate-rotate-phone {
+    animation: none;
+  }
+}
